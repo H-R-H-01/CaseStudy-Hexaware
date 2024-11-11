@@ -30,7 +30,7 @@ VehicleID INT FOREIGN KEY REFERENCES Vehicles(VehicleID),
 RouteID INT FOREIGN KEY REFERENCES Routess(RouteID),
 DepartureDate DATETIME,
 ArrivalDate DATETIME,
-V_Status VARCHAR(50),
+T_Status VARCHAR(50),
 TripType VARCHAR(50) DEFAULT 'Freight',
 MaxPassengers INT
 )
@@ -69,7 +69,7 @@ VALUES
 ('Chicago', 'Detroit', 280.00)
 
 -- Inserting sample data into the Trips table
-INSERT INTO Trips (VehicleID, RouteID, DepartureDate, ArrivalDate, V_Status, TripType, MaxPassengers)
+INSERT INTO Trips (VehicleID, RouteID, DepartureDate, ArrivalDate, T_Status, TripType, MaxPassengers)
 VALUES
 (1, 1, '2024-11-15 08:00:00', '2024-11-15 12:00:00', 'Scheduled', 'Passenger', 12),
 (2, 2, '2024-11-16 09:00:00', '2024-11-16 17:30:00', 'Scheduled', 'Freight', NULL),
