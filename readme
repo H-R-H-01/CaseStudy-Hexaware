@@ -1,0 +1,41 @@
+--> Case Study - Transport Management System 
+
+
+Schema Design:
+      1. Vehicles table: 
+      • VehicleID: INT, AUTO_INCREMENT, PRIMARY KEY 
+      • Model: VARCHAR(255) 
+      • Capacity: DECIMAL(10, 2) 
+      • Type: VARCHAR(50) (e.g., Truck, Van, Bus) 
+      • Status: VARCHAR(50) (e.g., Available, On Trip, Maintenance) 
+      
+      2. Routes table: 
+      • RouteID: INT, AUTO_INCREMENT, PRIMARY KEY 
+      • StartDestination: VARCHAR(255) 
+      • EndDestination: VARCHAR(255) 
+      • Distance: DECIMAL(10, 2) 
+      
+      3. Trips table: 
+      • TripID: INT, AUTO_INCREMENT, PRIMARY KEY 
+      • VehicleID: INT, FOREIGN KEY REFERENCES Vehicles(VehicleID) 
+      • RouteID: INT, FOREIGN KEY REFERENCES Routes(RouteID) 
+      • DepartureDate: DATETIME 
+      • ArrivalDate: DATETIME 
+      • Status: VARCHAR(50) (e.g., Scheduled, In Progress, Completed, Cancelled) 
+      • TripType: VARCHAR(50) DEFAULT 'Freight' (e.g., Freight, Passenger) 
+      • MaxPassengers: INT 
+      
+      4. Passengers table: 
+      • PassengerID: INT, AUTO_INCREMENT, PRIMARY KEY 
+      • FirstName: VARCHAR(255) 
+      • gender: VARCHAR(255) 
+      • age: INT 
+      • Email: VARCHAR(255), UNIQUE 
+      • PhoneNumber: VARCHAR(50) 
+      
+      5. Bookings table: 
+      • BookingID: INT, AUTO_INCREMENT, PRIMARY KEY 
+      • TripID: INT, FOREIGN KEY REFERENCES Trips (TripID) 
+      • PassengerID: INT, FOREIGN KEY REFERENCES Passengers (PassengerID) 
+      • BookingDate: DATETIME 
+      • Status: VARCHAR (50) (e.g., Confirmed, Cancelled, Completed) 
